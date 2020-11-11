@@ -1,0 +1,60 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/senyang/Desktop/QiNiu_Android",
+      "sdkFolder": "/Users/senyang/Library/Android/sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates",
+      "gradleModulePathName": ":curl",
+      "moduleRootFolder": "/Users/senyang/Desktop/QiNiu_Android/curl",
+      "makeFile": "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Android.mk",
+      "buildSystem": "NDK_BUILD",
+      "compilerSettingsCacheFolder": "/Users/senyang/Desktop/QiNiu_Android/.cxx",
+      "cxxFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx",
+      "ndkFolder": "/Users/senyang/Library/Android/sdk/ndk/21.3.6528147",
+      "ndkVersion": "21.3.6528147",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [],
+    "variantName": "release",
+    "soFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/lib",
+    "objFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj/local",
+    "jsonFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release",
+    "gradleBuildOutputFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/cxx/release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 21,
+  "cxxBuildFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a",
+  "jsonFile": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/cxx/release/arm64-v8a",
+  "objFolder": "/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj/local/arm64-v8a",
+  "buildCommandFile": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a/build_command.txt",
+  "buildOutputFile": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a/build_output.txt",
+  "modelOutputFile": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a/build_model.json",
+  "jsonGenerationLoggingRecordFile": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/senyang/Desktop/QiNiu_Android/curl/.cxx/ndkBuild/release/arm64-v8a/compile_commands.json"
+}

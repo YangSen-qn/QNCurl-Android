@@ -1,0 +1,46 @@
+{
+  "buildFiles": [
+    "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Android.mk",
+    "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/lib clean"
+  ],
+  "buildTargetsCommand": "/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "qn-curl-release-armeabi-v7a": {
+      "buildCommand": "/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/lib /Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libqn-curl.so",
+      "toolchain": "toolchain-armeabi-v7a",
+      "abi": "armeabi-v7a",
+      "artifactName": "qn-curl",
+      "files": [
+        {
+          "src": "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/native/curl_configuration.cpp",
+          "flags": "-target armv7-none-linux-androideabi21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/senyang/Library/Android/sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fpic -march\u003darmv7-a -mthumb -Oz -DNDEBUG -I/platforms/android-21/arch-arm/usr/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/lib/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++abi/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni -frtti -fexceptions -DANDROID -DANDROID -mfpu\u003dvfp -mfloat-abi\u003dsoftfp -fno-short-enums -Werror -DANDROID -nostdinc++ -Wformat -Werror\u003dformat-security -std\u003dgnu++0x"
+        },
+        {
+          "src": "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/native/curl_jni_call_back.cpp",
+          "flags": "-target armv7-none-linux-androideabi21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/senyang/Library/Android/sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fpic -march\u003darmv7-a -mthumb -Oz -DNDEBUG -I/platforms/android-21/arch-arm/usr/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/lib/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++abi/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni -frtti -fexceptions -DANDROID -DANDROID -mfpu\u003dvfp -mfloat-abi\u003dsoftfp -fno-short-enums -Werror -DANDROID -nostdinc++ -Wformat -Werror\u003dformat-security -std\u003dgnu++0x"
+        },
+        {
+          "src": "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/native/curl_native.cpp",
+          "flags": "-target armv7-none-linux-androideabi21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/senyang/Library/Android/sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fpic -march\u003darmv7-a -mthumb -Oz -DNDEBUG -I/platforms/android-21/arch-arm/usr/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/lib/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++abi/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni -frtti -fexceptions -DANDROID -DANDROID -mfpu\u003dvfp -mfloat-abi\u003dsoftfp -fno-short-enums -Werror -DANDROID -nostdinc++ -Wformat -Werror\u003dformat-security -std\u003dgnu++0x"
+        },
+        {
+          "src": "/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/native/curl_transaction_metrics.cpp",
+          "flags": "-target armv7-none-linux-androideabi21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/senyang/Library/Android/sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fpic -march\u003darmv7-a -mthumb -Oz -DNDEBUG -I/platforms/android-21/arch-arm/usr/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni/lib/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include -I/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++abi/include -I/Users/senyang/Desktop/QiNiu_Android/curl/src/main/jni -frtti -fexceptions -DANDROID -DANDROID -mfpu\u003dvfp -mfloat-abi\u003dsoftfp -fno-short-enums -Werror -DANDROID -nostdinc++ -Wformat -Werror\u003dformat-security -std\u003dgnu++0x"
+        }
+      ],
+      "output": "/Users/senyang/Desktop/QiNiu_Android/curl/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libqn-curl.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-armeabi-v7a": {
+      "cppCompilerExecutable": "/Users/senyang/Library/Android/sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
