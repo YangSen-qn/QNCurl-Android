@@ -1,0 +1,80 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.qiniu.curl.test" >
+4
+5    <uses-sdk
+5-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:5:5-74
+6        android:minSdkVersion="21"
+6-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:5:15-41
+7        android:targetSdkVersion="26" />
+7-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:5:42-71
+8
+9    <instrumentation
+9-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:11:5-15:69
+10        android:name="android.support.test.runner.AndroidJUnitRunner"
+10-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:11:22-83
+11        android:functionalTest="false"
+11-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:13:22-53
+13        android:label="Tests for com.qiniu.curl.test"
+13-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:15:22-67
+14        android:targetPackage="com.qiniu.curl.test" />
+14-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:12:22-65
+15
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->[__tested_artifact__::curl] /Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+16-->[__tested_artifact__::curl] /Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-64
+17    <uses-permission android:name="android.permission.REORDER_TASKS" />
+17-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:24:5-72
+17-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:24:22-69
+18
+19    <application android:debuggable="true" >
+19-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:7:5-9:19
+19-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:7:18-43
+20        <uses-library android:name="android.test.runner" />
+20-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:8:9-60
+20-->/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7071799352175845362.xml:8:23-57
+21
+22        <activity
+22-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:27:9-33:20
+23            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+23-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:28:13-99
+24            android:theme="@style/InstrumentationActivityInvokerBootstrapActivityTheme" >
+24-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:29:13-88
+25            <intent-filter>
+25-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:30:13-32:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:31:17-69
+26-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:31:25-66
+27            </intent-filter>
+28        </activity>
+29        <activity
+29-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:34:9-40:20
+30            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+30-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:35:13-95
+31            android:theme="@style/InstrumentationActivityInvokerEmptyActivityTheme" >
+31-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:36:13-84
+32            <intent-filter>
+32-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:30:13-32:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:31:17-69
+33-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:31:25-66
+34            </intent-filter>
+35        </activity>
+36        <activity
+36-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:41:9-47:20
+37            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+37-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:42:13-103
+38            android:theme="@style/InstrumentationActivityInvokerFloatingActivityTheme" >
+38-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:43:13-87
+39            <intent-filter>
+39-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:30:13-32:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:31:17-69
+40-->[androidx.test:core:1.1.0] /Users/senyang/.gradle/caches/transforms-2/files-2.1/ba343e281f6dd6a8847af3ddc38365c4/jetified-core-1.1.0/AndroidManifest.xml:31:25-66
+41            </intent-filter>
+42        </activity>
+43    </application>
+44
+45</manifest>

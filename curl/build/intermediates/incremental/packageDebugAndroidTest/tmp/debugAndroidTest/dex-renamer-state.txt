@@ -1,0 +1,7 @@
+#Wed Nov 11 15:18:48 CST 2020
+base.0=/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/dex/debugAndroidTest/mergeExtDexDebugAndroidTest/out/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/senyang/Desktop/QNCurlAndroid/curl/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/out/classes.dex
