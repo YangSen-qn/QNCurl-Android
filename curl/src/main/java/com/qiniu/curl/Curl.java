@@ -1,12 +1,12 @@
 package com.qiniu.curl;
 
 
-import android.util.Log;
+import com.qiniu.library.CurlAPI.ICurl;
+import com.qiniu.library.CurlAPI.ICurlConfiguration;
+import com.qiniu.library.CurlAPI.ICurlHandler;
+import com.qiniu.library.CurlAPI.ICurlRequest;
 
-import java.util.ArrayList;
-import java.util.Map;
-
-public class Curl {
+public class Curl implements ICurl {
 
     private boolean isCancel = false;
 
@@ -20,22 +20,21 @@ public class Curl {
 
     public native long globalInit();
 
-    public void request(final CurlRequest request,
-                        final CurlConfiguration curlConfiguration,
-                        final CurlHandlerI curlHandler){
+    public void request(final ICurlRequest request,
+                        final ICurlConfiguration curlConfiguration,
+                        final ICurlHandler curlHandler){
 
         CurlThreadPool.run(new Runnable() {
             @Override
             public void run() {
-                Log.d("==Curl request thread", Thread.currentThread().toString());
                 CurlHandler curlHandlerReal = new CurlHandler(curlHandler);
                 requestNative(request, curlConfiguration, curlHandlerReal);
             }
         });
     }
 
-    public native void requestNative(final CurlRequest request,
-                                     final CurlConfiguration curlConfiguration,
+    public native void requestNative(final ICurlRequest request,
+                                     final ICurlConfiguration curlConfiguration,
                                      final CurlHandler curlHandler);
 
     public void cancel(){

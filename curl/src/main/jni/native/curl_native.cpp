@@ -75,7 +75,7 @@ int CurlDebugCallback(CURL *curl, curl_infotype infoType, char *info, size_t inf
 
     switch (infoType) {
         case CURLINFO_TEXT:
-            fprintf(stderr, "=> Text: %s", info);
+//            fprintf(stderr, "=> Text: %s", info);
             break;
         case CURLINFO_HEADER_IN:
             kCurlLogD("<= Recv header: %s", info);
@@ -84,16 +84,16 @@ int CurlDebugCallback(CURL *curl, curl_infotype infoType, char *info, size_t inf
             kCurlLogD("==> Send header: %s", info);
             break;
         case CURLINFO_DATA_IN:
-            kCurlLogD("=> Recv data");
+//            kCurlLogD("=> Recv data");
             break;
         case CURLINFO_DATA_OUT:
-            kCurlLogD("=> Send data");
+//            kCurlLogD("=> Send data");
             break;
         case CURLINFO_SSL_DATA_IN:
-            kCurlLogD("<= Recv SSL data: %s", info);
+//            kCurlLogD("<= Recv SSL data: %s", info);
             break;
         case CURLINFO_SSL_DATA_OUT:
-            kCurlLogD("=> Send SSL data: %s", info);
+//            kCurlLogD("=> Send SSL data: %s", info);
             break;
         default: /* in case a new one is introduced to shock us */
             return 0;
@@ -170,12 +170,13 @@ void initCurlRequestDefaultOptions(CURL *curl, struct CurlContext *curlContext, 
 //    curl_easy_setopt(curl, CURLOPT_PIPEWAIT, 1);
     curl_easy_setopt(curl, CURLOPT_DNS_CACHE_TIMEOUT, 10L);
     curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1L);
-    curl_easy_setopt(curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2TLS);
+    curl_easy_setopt(curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_3);
 
 
-//    curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
-//    curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, CurlDebugCallback);
-//    curl_easy_setopt(curl, CURLOPT_DEBUGDATA, curlContext);
+    curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+    curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, CurlDebugCallback);
+    curl_easy_setopt(curl, CURLOPT_DEBUGDATA, curlContext);
+
     qn_curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, CurlReceiveHeaderCallback, errorCode,
                         errorInfo, "header function set 0 error");
     qn_curl_easy_setopt(curl, CURLOPT_HEADERDATA, curlContext, errorCode, errorInfo,
@@ -197,12 +198,15 @@ void initCurlRequestUploadData(CURL *curl, struct CurlContext *curlContext, CURL
     long totalBytesExpectedToSend = static_cast<long>(curlContext->totalBytesExpectedToSend);
     qn_curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, totalBytesExpectedToSend, errorCode, errorInfo,
                         "body length set error");
-//    qn_curl_easy_setopt(curl, CURLOPT_POSTFIELDS, curlUtilConvertJByteArrayToChars(curlContext->env, curlContext->body), errorCode, errorInfo,
-//                        "body set error");
-    qn_curl_easy_setopt(curl, CURLOPT_READFUNCTION, CurlReadCallback, errorCode, errorInfo,
-                        "read function set 1 error");
-    qn_curl_easy_setopt(curl, CURLOPT_READDATA, curlContext, errorCode, errorInfo,
-                        "read function set 2 error");
+    if (curlContext->body != NULL) {
+        qn_curl_easy_setopt(curl, CURLOPT_POSTFIELDS, curlUtilConvertJByteArrayToChars(curlContext->env, curlContext->body), errorCode, errorInfo,
+                        "body set error");
+    } else {
+        qn_curl_easy_setopt(curl, CURLOPT_READFUNCTION, CurlReadCallback, errorCode, errorInfo,
+                            "read function set 1 error");
+        qn_curl_easy_setopt(curl, CURLOPT_READDATA, curlContext, errorCode, errorInfo,
+                            "read function set 2 error");
+    }
 }
 
 void initCurlRequestDownloadData(CURL *curl, struct CurlContext *curlContext, CURLcode *errorCode,
@@ -222,22 +226,21 @@ void initCurlRequestCustomOptions(CURL *curl, struct CurlContext *curlContext) {
     }
 
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, curlContext->requestTimeout);
-//    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 40L);
 
     //todo: CA证书配置
-//    char *caPath = curlContext->caPath;
-//    if (caPath != NULL && strlen(caPath) > 0) {
-//        curl_easy_setopt(curl, CURLOPT_CAINFO, caPath);
-//        curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_DEFAULT);
-//        curl_easy_setopt(curl, CURLOPT_SSL_CIPHER_LIST, "ALL");
-//        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
-//        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 1L);
-//        curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, NULL);
-//    } else {
+    char *caPath = curlContext->caPath;
+    if (caPath != NULL && strlen(caPath) > 0) {
+        curl_easy_setopt(curl, CURLOPT_CAINFO, caPath);
+        curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_DEFAULT);
+        curl_easy_setopt(curl, CURLOPT_SSL_CIPHER_LIST, "ALL");
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 1L);
+        curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, NULL);
+    } else {
         curl_easy_setopt(curl, CURLOPT_USE_SSL, CURLUSESSL_ALL);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-//    }
+    }
 }
 
 void initCurlDnsResolver(CURL *curl, struct CurlContext *curlContext) {
@@ -358,8 +361,8 @@ void handleMetrics(struct CurlContext *curlContext, CURL *curl) {
     curl_easy_getinfo(curl, CURLINFO_REDIRECT_TIME_T, &redirect_time);
     curl_easy_getinfo(curl, CURLINFO_REDIRECT_COUNT, &redirect_count);
 
-    kCurlLogD("total_time:%ld, name_lookup_time:%ld, connect_time:%ld, app_connect_time:%ld, pre_transfer_time:%ld, start_transfer_time:%ld, redirect_time:%ld, redirect_count:%ld",
-              (long)total_time, (long)name_lookup_time, (long)connect_time, (long)app_connect_time, (long)pre_transfer_time, (long)start_transfer_time, (long)redirect_time, (long)redirect_count);
+//    kCurlLogD("total_time:%ld, name_lookup_time:%ld, connect_time:%ld, app_connect_time:%ld, pre_transfer_time:%ld, start_transfer_time:%ld, redirect_time:%ld, redirect_count:%ld",
+//              (long)total_time, (long)name_lookup_time, (long)connect_time, (long)app_connect_time, (long)pre_transfer_time, (long)start_transfer_time, (long)redirect_time, (long)redirect_count);
 
     setJavaMetricsTotalTime(curlContext, total_time);
     setJavaMetricsNameLookupTime(curlContext, name_lookup_time);
@@ -445,20 +448,20 @@ extern "C" JNIEXPORT void JNICALL Java_com_qiniu_curl_Curl_requestNative(JNIEnv 
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 1");
+//    kCurlLogD("== Curl Debug: 1");
     initCurlRequestCustomOptions(curl, &curlContext);
     initCurlRequestUploadData(curl, &curlContext, &errorCode,
                               reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 2");
+//    kCurlLogD("== Curl Debug: 2");
     initCurlRequestDownloadData(curl, &curlContext, &errorCode,
                                 reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 3");
+//    kCurlLogD("== Curl Debug: 3");
     initCurlDnsResolver(curl, &curlContext);
     initCurlRequestProxy(curl, &curlContext);
     initCurlRequestHeader(curl, &curlContext, &errorCode,
@@ -466,28 +469,28 @@ extern "C" JNIEXPORT void JNICALL Java_com_qiniu_curl_Curl_requestNative(JNIEnv 
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 4");
+//    kCurlLogD("== Curl Debug: 4");
     initCurlRequestUrl(curl, &curlContext, &errorCode, reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 5");
+//    kCurlLogD("== Curl Debug: 5");
     initCurlRequestMethod(curl, &curlContext, &errorCode,
                           reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 6");
+//    kCurlLogD("== Curl Debug: 6");
 
     performRequest(curl, &errorCode, reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
         goto curl_perform_complete;
     }
-    kCurlLogD("== Curl Debug: 7");
+//    kCurlLogD("== Curl Debug: 7");
     curl_perform_complete:
     handleResponse(&curlContext, curl);
     handleMetrics(&curlContext, curl);
-    kCurlLogD("== Curl Debug: 8    error code:%d %s", errorCode, errorInfo);
+//    kCurlLogD("== Curl Debug: 8    error code:%d %s", errorCode, errorInfo);
 
     completeWithError(&curlContext, transformCurlStatusCode(errorCode), reinterpret_cast<const char *>(&errorInfo));
 

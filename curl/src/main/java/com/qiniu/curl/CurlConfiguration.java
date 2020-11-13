@@ -3,9 +3,11 @@ package com.qiniu.curl;
 
 import android.annotation.SuppressLint;
 
+import com.qiniu.library.CurlAPI.ICurlConfiguration;
+
 import java.util.ArrayList;
 
-public class CurlConfiguration {
+public class CurlConfiguration implements ICurlConfiguration {
 
     private static String defaultCAPath;
 
@@ -30,20 +32,25 @@ public class CurlConfiguration {
         return caPath;
     }
 
-    public CurlConfiguration(Builder builder) {
-        this.dnsResolverArray = builder.dnsResolverArray;
-        this.proxy = builder.proxy;
-        this.proxyUserPwd = builder.proxyUserPwd;
-        this.caPath = builder.caPath;
+    public void setCAPath(String caPath) {
+        this.caPath = caPath;
+    }
+
+    @Override
+    public void init(IBuilder builder) {
+        this.dnsResolverArray = builder.getDnsResolverArray();
+        this.proxy = builder.getProxy();
+        this.proxyUserPwd = builder.getProxyUserPwd();
+        this.caPath = builder.getCaPath();
     }
 
 
-    public static class DnsResolver {
-        protected final String host;
-        protected final String ip;
-        protected final int port;
+    public static class DnsResolver implements ICurlConfiguration.IDnsResolver {
+        private String host;
+        private String ip;
+        private int port;
 
-        public DnsResolver(String host, String ip, int port){
+        public void init(String host, String ip, int port){
             this.host = host;
             this.ip = ip;
             this.port = port;
@@ -55,12 +62,12 @@ public class CurlConfiguration {
         }
     }
 
-    public static class Builder{
+    public static class Builder implements ICurlConfiguration.IBuilder{
 
-        protected String[] dnsResolverArray;
-        protected String proxy;
-        protected String proxyUserPwd;
-        protected String caPath;
+        private String[] dnsResolverArray;
+        private String proxy;
+        private String proxyUserPwd;
+        private String caPath;
 
         public Builder(){
             if (defaultCAPath == null) {
@@ -69,12 +76,29 @@ public class CurlConfiguration {
             caPath = defaultCAPath;
         }
 
-        public Builder setDnsResolverArray(DnsResolver[] dnsResolverArray) {
+        public String[] getDnsResolverArray() {
+            return dnsResolverArray;
+        }
+
+        public String getProxy() {
+            return proxy;
+        }
+
+        public String getProxyUserPwd() {
+            return proxyUserPwd;
+        }
+
+        public String getCaPath() {
+            return caPath;
+        }
+
+        @Override
+        public Builder setDnsResolverArray(IDnsResolver[] dnsResolverArray) {
             if (dnsResolverArray == null || dnsResolverArray.length == 0){
                 return this;
             }
             ArrayList<String> dnsResolverList = new ArrayList<>();
-            for (DnsResolver resolver : dnsResolverArray){
+            for (IDnsResolver resolver : dnsResolverArray){
                 dnsResolverList.add(resolver.toString());
             }
             this.dnsResolverArray = dnsResolverList.toArray(new String[0]);
@@ -97,7 +121,9 @@ public class CurlConfiguration {
         }
 
         public CurlConfiguration build(){
-            return new CurlConfiguration(this);
+            CurlConfiguration configuration = new CurlConfiguration();
+            configuration.init(this);
+            return configuration;
         }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="QNCurlAndroid" module="curl" revision="unspecified" status="integration" publication="20201111152414"/>
+  <info organisation="QNCurlAndroid" module="curl" revision="unspecified" status="integration" publication="20201113184558"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -187,7 +187,33 @@
     </dependency>
     <dependency org="com.android.support.test" name="runner" rev="1.0.2" conf="androidTestImplementation-&gt;default"/>
     <dependency org="com.android.support.test.espresso" name="espresso-core" rev="3.0.2" conf="androidTestImplementation-&gt;default"/>
+    <dependency org="com.qiniu" name="upload-base" rev="0.0.2" conf="implementation-&gt;default"/>
     <dependency org="com.android.tools.lint" name="lint-gradle" rev="26.6.3" conf="lintClassPath-&gt;default"/>
+    <dependency org="com.qiniu" name="upload-base" rev="0.0.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.appcompat" name="appcompat" rev="1.2.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.annotation" name="annotation" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.core" name="core" rev="1.3.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-runtime" rev="2.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-common" rev="2.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.arch.core" name="core-common" rev="2.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.versionedparcelable" name="versionedparcelable" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.collection" name="collection" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.cursoradapter" name="cursoradapter" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.fragment" name="fragment" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.viewpager" name="viewpager" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.customview" name="customview" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.loader" name="loader" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-livedata" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.arch.core" name="core-runtime" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-livedata-core" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-viewmodel" rev="2.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.activity" name="activity" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.savedstate" name="savedstate" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.appcompat" name="appcompat-resources" rev="1.2.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.vectordrawable" name="vectordrawable" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.vectordrawable" name="vectordrawable-animated" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.interpolator" name="interpolator" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.drawerlayout" name="drawerlayout" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="junit" name="junit" rev="4.13" conf="testImplementation-&gt;default"/>
   </dependencies>
 </ivy-module>

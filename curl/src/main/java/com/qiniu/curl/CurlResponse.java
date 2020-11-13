@@ -1,8 +1,10 @@
 package com.qiniu.curl;
 
+import com.qiniu.library.CurlAPI.ICurlResponse;
+
 import java.util.Map;
 
-public class CurlResponse {
+public class CurlResponse implements ICurlResponse {
 
     public final String url;
     public final int statusCode;
@@ -23,5 +25,35 @@ public class CurlResponse {
         this.mimeType = mimeType;
         this.expectedContentLength = expectedContentLength;
         this.httpVersion = httpVersion;
+    }
+
+    @Override
+    public String getUrl() {
+        return url;
+    }
+
+    @Override
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    @Override
+    public Map<String, String> getAllHeaderFields() {
+        return allHeaderFields;
+    }
+
+    @Override
+    public String getMimeType() {
+        return null;
+    }
+
+    @Override
+    public long getExpectedContentLength() {
+        return expectedContentLength;
+    }
+
+    @Override
+    public String getHttpVersion() {
+        return httpVersion;
     }
 }

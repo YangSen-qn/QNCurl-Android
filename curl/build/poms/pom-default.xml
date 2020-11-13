@@ -6,4 +6,12 @@
   <artifactId>curl-android</artifactId>
   <version>1.0.0</version>
   <packaging>aar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>com.qiniu</groupId>
+      <artifactId>upload-base</artifactId>
+      <version>0.0.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>

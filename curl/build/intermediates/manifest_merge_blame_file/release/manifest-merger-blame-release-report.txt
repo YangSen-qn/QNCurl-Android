@@ -6,12 +6,12 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->/Users/senyang/Desktop/QNCurlAndroid/curl/src/main/AndroidManifest.xml
+8-->/Users/senyang/Desktop/QiNiu/Application/QNCurlAndroid/curl/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="26" />
-9-->/Users/senyang/Desktop/QNCurlAndroid/curl/src/main/AndroidManifest.xml
+9-->/Users/senyang/Desktop/QiNiu/Application/QNCurlAndroid/curl/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/senyang/Desktop/QNCurlAndroid/curl/src/main/AndroidManifest.xml:4:5-67
-11-->/Users/senyang/Desktop/QNCurlAndroid/curl/src/main/AndroidManifest.xml:4:22-64
+11-->/Users/senyang/Desktop/QiNiu/Application/QNCurlAndroid/curl/src/main/AndroidManifest.xml:4:5-67
+11-->/Users/senyang/Desktop/QiNiu/Application/QNCurlAndroid/curl/src/main/AndroidManifest.xml:4:22-64
 12
 13</manifest>

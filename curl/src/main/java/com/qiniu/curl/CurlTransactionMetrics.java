@@ -1,6 +1,8 @@
 package com.qiniu.curl;
 
-public class CurlTransactionMetrics {
+import com.qiniu.library.CurlAPI.ICurlTransactionMetrics;
+
+public class CurlTransactionMetrics implements ICurlTransactionMetrics {
 
     private long countOfRequestHeaderBytesSent;
     private long countOfRequestBodyBytesSent;

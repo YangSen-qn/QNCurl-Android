@@ -2,13 +2,15 @@ package com.qiniu.curl;
 
 import android.util.Log;
 
+import com.qiniu.library.CurlAPI.ICurlHandler;
+
 import java.util.HashMap;
 
 class CurlHandler {
 
-    private final CurlHandlerI curlHandler;
+    private final ICurlHandler curlHandler;
 
-    CurlHandler(CurlHandlerI curlHandler) {
+    CurlHandler(ICurlHandler curlHandler) {
         this.curlHandler = curlHandler;
     }
 

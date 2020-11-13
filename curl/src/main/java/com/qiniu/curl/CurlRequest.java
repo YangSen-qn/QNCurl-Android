@@ -2,11 +2,13 @@ package com.qiniu.curl;
 
 import android.util.Log;
 
+import com.qiniu.library.CurlAPI.ICurlRequest;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CurlRequest {
+public class CurlRequest implements ICurlRequest {
 
     private String urlString;
     private int httpMethod;
@@ -14,11 +16,11 @@ public class CurlRequest {
     private int timeout;
     private byte[] httpBody;
 
-    public CurlRequest(String urlString,
-                       int httpMethod,
-                       Map<String, String> allHeaders,
-                       byte[] httpBody,
-                       int timeout) {
+    public void init(String urlString,
+                     int httpMethod,
+                     Map<String, String> allHeaders,
+                     byte[] httpBody,
+                     int timeout) {
 
         this.urlString = urlString;
         this.httpMethod = httpMethod;
@@ -41,7 +43,7 @@ public class CurlRequest {
 
     public String[] getAllHeaderList() {
         String[] headerArray = new String[]{};
-        if (allHeaders != null){
+        if (allHeaders != null) {
             ArrayList<String> headerList = new ArrayList<>();
             for (String headerKey : allHeaders.keySet()) {
                 String headerValue = allHeaders.get(headerKey);
