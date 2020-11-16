@@ -8,6 +8,7 @@
 #include "curl_request.h"
 #include "curl_jni_call_back.h"
 #include "curl_utils.h"
+#include "curl_error.h"
 
 #include <jni.h>
 #include <android/log.h>
@@ -440,26 +441,26 @@ extern "C" JNIEXPORT void JNICALL Java_com_qiniu_curl_Curl_requestNative(JNIEnv 
 
     CURL *curl = curl_easy_init();
     if (curl == NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 
     initCurlRequestDefaultOptions(curl, &curlContext, &errorCode,
                                   reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 1");
     initCurlRequestCustomOptions(curl, &curlContext);
     initCurlRequestUploadData(curl, &curlContext, &errorCode,
                               reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 2");
     initCurlRequestDownloadData(curl, &curlContext, &errorCode,
                                 reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 3");
     initCurlDnsResolver(curl, &curlContext);
@@ -467,28 +468,29 @@ extern "C" JNIEXPORT void JNICALL Java_com_qiniu_curl_Curl_requestNative(JNIEnv 
     initCurlRequestHeader(curl, &curlContext, &errorCode,
                           reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 4");
     initCurlRequestUrl(curl, &curlContext, &errorCode, reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 5");
     initCurlRequestMethod(curl, &curlContext, &errorCode,
                           reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 6");
 
     performRequest(curl, &errorCode, reinterpret_cast<const char **>(&errorInfo));
     if (errorInfo != NULL) {
-        goto curl_perform_complete;
+        goto curl_perform_complete_error;
     }
 //    kCurlLogD("== Curl Debug: 7");
-    curl_perform_complete:
     handleResponse(&curlContext, curl);
+
+    curl_perform_complete_error:
     handleMetrics(&curlContext, curl);
 //    kCurlLogD("== Curl Debug: 8    error code:%d %s", errorCode, errorInfo);
 
