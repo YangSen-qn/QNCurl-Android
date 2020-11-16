@@ -484,9 +484,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_qiniu_curl_Curl_requestNative(JNIEnv 
 //    kCurlLogD("== Curl Debug: 6");
 
     performRequest(curl, &errorCode, reinterpret_cast<const char **>(&errorInfo));
-    if (errorInfo != NULL) {
-        goto curl_perform_complete_error;
-    }
+
 //    kCurlLogD("== Curl Debug: 7");
     handleResponse(&curlContext, curl);
 
